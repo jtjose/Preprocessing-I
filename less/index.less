@@ -1,22 +1,84 @@
-// Is this working?
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -24,36 +86,330 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+
+
+/*--------Color Palette
+#2B2D42 - dark blue
+#8D99AE - light blue
+#EDF2F4 - blue to white
+#EF233C - red
+------------------------*/
+
+/*--------------Global styles-------------------------*/
+//varibles
+@top-color: #50778F;
+@mobile-color: red;
+
+//mixin
+
+.center() {
+	display: flex;
+	justify-content: center;
+	align-content: center;
 }
+
+
+.bordered() {
+	border-top: dotted 2px black;
+	border-bottom: dotted 2px black;
+}
+
+.boldText {
+	font-size: 1.3rem;
+	font-weight: bold;
+}
+
+.aText {
+	font-size: 1.1rem;
+	color: #EF233C;
+
+}
+
+
+
+
+html {
+	box-sizing: border-box;
+
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
 body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+	font-family: 'Open Sans', sans-serif;
+	margin: 0;
+
 }
 
-/* Set every element's box-sizing to border-box */
-* {
-    box-sizing: border-box;
+h1,
+h2 {
+	font-family: 'caveat', cursive;
+	font-weight: 400;
 }
 
-html, body {
-    height: 100%;
+h1 {
+	font-size: 80px;
 }
 
+h2 {
+	font-size: 40px;
+	margin-top: 0;
+}
+
+h3 {
+	margin: 0;
+}
+
+a {
+	color: black;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.container {
+	max-width: 880;
+	width: 100%;
+	margin: auto;
+
+
+
+}
+
+.upper-class {
+	text-transform: uppercase;
+}
+
+.btn {
+	text-decoration: none;
+	background: #EF233C;
+	color: white;
+	padding: 10px;
+}
+
+/*------------------------Navigation-----------------*/
+nav {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	.bordered();
+
+	text-align: center;
+	position: fixed;
+	background: white;
+	width: 100%;
+	top: 0;
+}
+
+nav a {
+	display: inline-block;
+	margin: 18px;
+	text-decoration: none;
+	font-weight: 700;
+	text-transform: uppercase;
+	.boldText();
+}
+
+/*-------------------Header and Footer-----------------*/
+header,
+footer {
+	background-color: @top-color;
+	color: @top-color;
+}
+
+.text-color {
+	color: white;
+}
+
+/*--------------------Header only----------------------*/
+header h1,
+header h2 {
+	color: #EDF2F4;
+
+
+}
+
+h1 {
+	margin: 0;
+
+}
+
+header {
+	position: relative;
+	padding-top: 50px;
+	text-align: center;
+}
+
+.profile-img {
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+}
+
+.download {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+/* ---------------------Footer only---------------------- */
+footer {
+	text-align: center;
+}
+
+.contact-buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.media-pic {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	border: #8D99AE solid 2px;
+}
+
+.media-pic:hover {
+	transform: scale(1.1);
+}
+
+footer p {
+	margin-top: 50px;
+
+}
+
+/*---------------------------Work------------------------*/
+
+main {
+	@media(max-width: 500px) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-flow: column nowrap;
+		padding: 0;
+		margin: auto;
+		overflow: hidden;
+
+		a {
+
+			@media (max-width: 500px) {
+				background-color: @mobile-color;
+			}
+		}
+	}
+}
+
+.content-wrap {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column nowrap;
+	padding: 55px 0;
+	margin: auto;
+	width: 800px;
+	overflow: hidden;
+}
+
+.content-wrap2 {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 60px 50px;
+	overflow: hidden;
+}
+
+.work-experience {
+	background-color: #EDF2F4;
+}
+
+h3~p {
+	margin: 0;
+}
+
+.job-description {
+	margin-bottom: 35px;
+}
+
+.job-description p:first-of-type {
+	margin-top: 0;
+}
+
+/*--------------------Education-------------------*/
+
+.education {
+	background: linear-gradient(rgba(141, 153, 174, 0.9), rgba(141, 153, 174, 0.7)),
+		url(https://bt-wpstatic.freetls.fastly.net/wp-content/blogs.dir/3850/files/2017/04/raleigh.jpg) no-repeat fixed;
+	background-size: cover;
+	.center();
+	.bordered;
+
+}
+
+p+h3 {
+	margin-top: 30px;
+}
+
+/* --------------------@media--------------------- */
+@media (min-width: 935px) {
+	.profile-img {
+		width: 250px;
+		height: 250px;
+	}
+
+	.col-narrow {
+		width: 30%;
+		float: left;
+	}
+
+	.col-wide {
+		width: 70%;
+		float: left;
+		padding-left: 50px;
+
+	}
+}
+
+@media (max-width: 500px) {
+
+	nav a {
+		margin: 5px;
+		font-size: 11px;
+		.aText();
+	}
+
+	.profile-img {
+		width: 150px;
+		height: 150px;
+	}
+
+	h1 {
+		font-size: 50px;
+	}
+
+	h2 {
+		font-size: 30px;
+
+	}
+
+	h3 {
+		font-size: 18px;
+	}
+
+	.content-wrap {
+		max-width: 320px;
+		padding: 30px 15px;
+	}
+
+	.touch-me {
+		color: white;
+	}
+
+	.btn {
+		padding: 0 5px 0 5px;
+	}
+}
